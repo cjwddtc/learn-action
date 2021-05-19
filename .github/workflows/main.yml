@@ -34,8 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          if [ -d ~/cache ];then mkdir ~/cache;fi
-          if [ !-f ~/cache/test ];then echo 1 > ~/cache/test;fi
+          if [ ! -d ~/cache ];then mkdir ~/cache;fi
+          if [ ! -f ~/cache/test ];then echo 1 > ~/cache/test;fi
           a='cat ~/cache/test'
           b=expr $a + 1
           echo $b > ~/cache/test
