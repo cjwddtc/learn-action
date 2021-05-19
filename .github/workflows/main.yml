@@ -42,6 +42,7 @@ jobs:
           echo qwe
           a=$(cat ~/cache/test)
           echo zxc
-          b=expr $a + 1
+          b=$(expr $a + 1)
+          echo asd
           echo $b > ~/cache/test
           echo $b
