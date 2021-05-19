@@ -23,9 +23,20 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/cache
+          key: asd
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          if [ -d ~/cache ];then mkdir ~/cache;fi
+          if [ ! -f ~/cache/test ];then echo 1 > ~/cache/test;fi
+          a='cat ~/cache/test'
+          b=expr $a + 1
+          echo $b > ~/cache/test
+          echo $b
