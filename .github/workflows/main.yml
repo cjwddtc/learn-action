@@ -37,12 +37,9 @@ jobs:
           mkdir -p ~/cache
           ls ~/cache
           if [ ! -f ~/cache/test ];then echo 1 > ~/cache/test;fi
-          echo asd
           ls ~/cache
-          echo qwe
           a=$(cat ~/cache/test)
-          echo zxc
-          b=$(expr $a + 1)
+          b=`expr $a + 1`
           echo asd
           echo $b > ~/cache/test
           echo $b
