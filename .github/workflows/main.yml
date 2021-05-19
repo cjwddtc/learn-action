@@ -24,7 +24,9 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: timestamp
-        run: echo "::set-output name=timestamp::"$(date  +%F-%H)
+        run: |
+          date  +%F-%H
+          echo "::set-output name=timestamp::"$(date  +%F-%H)
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
