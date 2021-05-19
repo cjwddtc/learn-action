@@ -40,9 +40,8 @@ jobs:
           echo asd
           ls ~/cache
           echo qwe
-          cat ~/cache/test
+          a=$(cat ~/cache/test)
           echo zxc
-          a=1
           b=expr $a + 1
           echo $b > ~/cache/test
           echo $b
