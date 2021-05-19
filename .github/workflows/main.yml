@@ -24,20 +24,21 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: getdate
-        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: getdate
+        run: echo "::set-output name=date::"$(date  +%F-%H)
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
           path: |
             ~/cache
-          key: asd-${{ steps.getdate.outputs.SELECTED_COLOR }}
+          key: asd-${{ steps.getdate.outputs.date }}
           restore-keys: asd-
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo "asd:"${{ steps.timestamp.outputs.timestamp }}
+          echo "asd:"${{ steps.getdate.outputs.date }}
           mkdir -p ~/cache
           ls ~/cache
           if [ ! -f ~/cache/test ];then echo 1 > ~/cache/test;fi
